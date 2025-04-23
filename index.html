@@ -43,19 +43,24 @@ body {
   h2 {
       text-align: center; color: #ffffff;
   }
-.button {
-  background-color: #FF9ABB; /* pink */
-  border: none;
-  color: white;
-  padding: 15px 100px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 100px 200px;
-  cursor: pointer;
-  border-radius: 10%;
-}
+ /* Button styling */
+    .start-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      background-color: #Ff9abb; /* Bright pink */
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none; /* Remove underline */
+    }
+
+    .start-button:hover {
+      background-color: #FF85C0; /* Slightly lighter pink on hover */
+    }
 
 </style>
 <style>
@@ -85,8 +90,9 @@ body {
       <center>
   
   <div>
-          <a class="button" aria-current="page" href="page02.html">CLICK TO START</a>
-            </div>
+  <a href="page02.html" class="start-button" onclick="alert('Button clicked!')">CLICK TO START</a>
+  </div>
+         
           </center>
           
     </body>
