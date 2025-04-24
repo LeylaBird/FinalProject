@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"> 
+  <head>
   <meta charset="utf-8">
   <title>Dress-up Fun</title>
-  <head>
     <!--google font links-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,20 +18,115 @@
     font-weight: 400;
     font-style: normal;
   }
-  .center {
-    margin: auto;
-    width: 50%;
-    padding: 100px;
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
   }
+   body {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+  background-color: #ffcede;
+  }
+  .main-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    display:flex;
+    background-color: #ffe9f0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  .left-area {
+    flex: 2;
+    background-color: #ff9abb;
+    position: relative;
+  }
+  .done-button {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #F47da4;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+    .done-button:hover {
+      background-color: #e1628c; /* Slightly lighter pink on hover */
+    }
+
     h1 {
         text-align: center; color: #ffffff; text-size-adjust: 200px;
     }
     h2 {
         text-align: center; color: #ffffff;
     }
-    body {
-  background-color: #ffcede;
-  }
+   /* Right panel (menu and options) */
+    .right-panel {
+      flex: 1; /* 1/3 of the container width */
+      background-color: #F48FB1; /* Bright pink */
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    /* Side menu buttons */
+    .side-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .side-button {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: center;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #FC6CAB;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .side-button.active {
+      background-color: #FF85C0; /* Active state color */
+    }
+
+    .side-button:hover {
+      background-color: #FF85C0; /* Hover color */
+    }
+
+    /* Options section */
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .option-button {
+      width: 100%;
+      padding: 20px;
+      background-color: #FCE4EC; /* Light pink */
+      border: 2px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .option-button.active {
+      border: 4px solid #FC6CAB; /* Highlight active option */
+    }
   </style>
 <style>
   body {
@@ -47,8 +142,47 @@
       font-family: 'Katibeh';font-size: 50px;
   }
   </style>
-    <h2>hello world</h2>
-
     </head>
-
+    <body>
+      <div class="main-container">
+        <!-- Left area -->
+        <div class="left-area">
+          <a href="#" class="done-button">DONE</a>
+        </div>
+    
+        <!-- Right panel -->
+        <div class="right-panel">
+          <!-- Side menu -->
+          <div class="side-menu">
+            <button class="side-button active" onclick="activateTab(this)">Skin</button>
+            <button class="side-button" onclick="activateTab(this)">Hair & Face</button>
+            <button class="side-button" onclick="activateTab(this)">Clothes</button>
+            <button class="side-button" onclick="activateTab(this)">Shoes</button>
+            <button class="side-button" onclick="activateTab(this)">Accessories</button>
+          </div>
+    
+          <!-- Options -->
+          <div class="options">
+            <button class="option-button" onclick="toggleOption(this)"></button>
+            <button class="option-button" onclick="toggleOption(this)"></button>
+            <button class="option-button" onclick="toggleOption(this)"></button>
+            <button class="option-button" onclick="toggleOption(this)"></button>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        // Function to activate a side menu button
+        function activateTab(button) {
+          // Remove 'active' class from all side buttons
+          document.querySelectorAll('.side-button').forEach(btn => btn.classList.remove('active'));
+          // Add 'active' class to the clicked button
+          button.classList.add('active');
+        }
+    
+        // Function to toggle the active state of an option button
+        function toggleOption(button) {
+          button.classList.toggle('active');
+        }
+      </script>
 </html>
