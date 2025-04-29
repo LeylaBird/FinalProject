@@ -15,10 +15,19 @@
 
 <title>Dress-up Fun</title>
 
-<audio autoplay>
-  <source src="Groovy_Mood_-_Martin_Eigenmann.mp3" type="audio/ogg">
-  <source src="Groovy_Mood_-_Martin_Eigenmann.mp3" type="audio/mpeg">
-</audio>
+<script src="Groovy_Mood_-_Martin_Eigenmann.mp3"></script>
+<script>
+function PlayMusic(Groovy_Mood_-_Martin_Eigenmann) {
+
+  var play=document.getElementById("music");
+  play.play();
+}
+
+$(document).ready(function(){
+  setTimeout(PlayMusic,3000);
+})
+
+</script>
 
 <style> 
 .katibeh-regular {
