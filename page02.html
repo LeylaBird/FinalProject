@@ -14,8 +14,9 @@
   <title>Dress Up Menu</title>
   
   <style>
-  
-.content 
+ <style>
+
+    
 
   .katibeh-regular {
     font-family: "Katibeh", serif;
@@ -36,7 +37,11 @@
      font-family: 'Katibeh';font-size: 22px;
 
     }
-    
+    .image {
+      max-width: 100%; /* Ensure image fits within container width */
+      max-height: 100%; /* Ensure image fits within container height */
+      object-fit: contain; /* Keep image aspect ratio */
+    }
     .main-container {
       width: 95%;
       max-width: 1200px;
@@ -230,6 +235,10 @@
     }
   </script>
    
+   <div class="container">
+    <img src="SKIN-OG.png" alt="original" class="image">
+  </div>
+
 </body>
 </html>
   
