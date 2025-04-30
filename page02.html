@@ -53,11 +53,84 @@
       position: relative;
       
     }
+  
     .left-area {
       flex: 2; 
       background-color: #FCE4EC;
       position: relative;
     }
+    
+    
+     /* Main container */
+    .menu-container {
+      display: flex;
+      width: 400px;
+      height: 600px;
+      background-color: #F48FB1; /* Bright pink background for menu */
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* Side tabs */
+    .side-tabs {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      background-color: #FC6CAB; /* Pink for tabs */
+      padding: 10px 0;
+      justify-content: space-around;
+    }
+
+    .tab-button {
+      writing-mode: vertical-rl; /* Rotate text vertically */
+      transform: rotate(180deg);
+      text-align: center;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #FC6CAB;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      background-color: #FF85C0; /* Highlight active tab */
+    }
+
+    .tab-button:hover {
+      background-color: #FF85C0; /* Hover effect for tabs */
+    }
+
+    /* Main content area */
+    .content-area {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for buttons */
+      gap: 20px;
+      padding: 20px;
+      background-color: #FCE4EC; /* Light pink background for content */
+    }
+
+    .option-button {
+      width: 100%;
+      background-color: #FCE4EC; /* Default button color */
+      border: 2px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+      height: 100px;
+    }
+
+    .option-button.active {
+      border: 4px solid #FC6CAB; /* Highlight active option */
+    }
+
+    .option-button:hover {
+      opacity: 0.8; /* Hover effect for buttons */
+    }
+    
+    
     .done-button {
       position: absolute;
       bottom: 20px;
@@ -85,6 +158,31 @@
       padding: 10px;
     }
 
+ /* Side tabs */
+    .side-tabs {
+      display: flex;
+      flex-direction: column;
+      width: 100px;
+      background-color: #FC6CAB; /* Pink for tabs */
+      padding: 10px 0;
+      justify-content: space-around;
+    }
+
+    .tab-button {
+      writing-mode: vertical-rl; /* Rotate text vertically */
+      transform: rotate(180deg);
+      text-align: center;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #FC6CAB;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+
     .tab.active {
       background-color: #FF85C0; 
     }
@@ -92,6 +190,43 @@
     .tab:hover {
       background-color: #FF85C0; 
     }
+
+    .tab-button.active {
+      background-color: #FF85C0; /* Highlight active tab */
+    }
+
+    .tab-button:hover {
+      background-color: #FF85C0; /* Hover effect for tabs */
+    }
+
+    /* Main content area */
+    .content-area {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for buttons */
+      gap: 20px;
+      padding: 20px;
+      background-color: #FCE4EC; /* Light pink background for content */
+    }
+
+    .option-button {
+      width: 100%;
+      background-color: #FCE4EC; /* Default button color */
+      border: 2px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+      height: 100px;
+    }
+
+    .option-button.active {
+      border: 4px solid #FC6CAB; /* Highlight active option */
+    }
+
+    .option-button:hover {
+      opacity: 0.8; /* Hover effect for buttons */
+    }
+
+
 
   h1 {
       font-family: 'Katibeh';font-size: 100px;
@@ -102,6 +237,7 @@
   p {
       font-family: 'Katibeh';font-size: 50px;
   }
+  
   </style>
 </head>
 <body>
@@ -115,173 +251,35 @@
     
     <div class="right-panel">
       <!-- Side menu -->
-      
-      <!--ACCORDION-->
-      
-      <!--TAB 1-->
-      <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        <h3> Skin color </h3>
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        SKIN COLOR 1
-        SKIN COLOR 2
-        SKIN COLOR 3
-        SKIN COLOR 4
-      </div>
+ <div class="side-tabs">
+      <button class="tab-button active" onclick="activateTab(this)">Skin Color</button>
+      <button class="tab-button" onclick="activateTab(this)">Hair</button>
+      <button class="tab-button" onclick="activateTab(this)">Face</button>
+      <button class="tab-button" onclick="activateTab(this)">Shirts</button>
+      <button class="tab-button" onclick="activateTab(this)">Bottoms</button>
+      <button class="tab-button" onclick="activateTab(this)">Dresses</button>
+      <button class="tab-button" onclick="activateTab(this)">Shoes</button>
+      <button class="tab-button" onclick="activateTab(this)">Accessories</button>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-    <!--TAB 2-->
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-       <h3>Hair</h3>
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-<style>
- .option-button {
-      width: 100%;
-      padding: 20px;
-      background-color: #FCE4EC; 
-      border: 2px solid black;
-      border-radius: 10px;
-      cursor: pointer;
-    }
 
-    .option-button.active {
-      border: 4px solid #FC6CAB; 
-    }
-        </style>
-        HAIR OPTION 1
-        HAIR OPTION 2
-        HAIR OPTION 3
-        HAIR OPTION 4
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-    <!--TAB 3-->
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-       <h3>Face</h3>
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        FACE OPTION 1
-        FACE OPTION 2
-        FACE OPTION 3
-        FACE OPTION 4
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-    <!--TAB 4-->
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-        <h3>Shirts</h3>
-      </button>
-    </h2>
-    <div id="collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        TOP OPTION 1
-        TOP OPTION 2
-        TOP OPTION 3
-        TOP OPTION 4
-      </div>
+    <!-- Main content area -->
+    <div class="content-area">
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #FFDAB9;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #D2B48C;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #8B4513;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #90EE90;"></button>
     </div>
   </div>
 
-   <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-  <!--TAB 5-->
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-       <h3>Bottoms</h3>
-      </button>
-    </h2>
-    <div id="collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        BOTTOMS OPTION 1
-        BOTTOMS OPTION 2
-        BOTTOMS OPTION 3
-        BOTTOMS OPTION 4
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-    <!--TAB 6-->
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-       <h3>Dresses</h3>
-      </button>
-    </h2>
-    <div id="collapsesix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        DRESS OPTION 1
-        DRESS OPTION 2
-        DRESS OPTION 3
-        DRESS OPTION 4
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-    <!--TAB 7-->
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-       <h3>Shoes</h3>
-      </button>
-    </h2>
-    <div id="collapseseven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        SHOE OPTION 1
-        SHOE OPTION 2
-        SHOE OPTION 3
-        SHOE OPTION 4
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-    <!--TAB 8-->
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">
-       <h3>Accessories</h3>
-      </button>
-    </h2>
-    <div id="collapseeight" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        JEWLERY OPTION 1
-        JEWLERY OPTION 2
-        JEWLERY OPTION 3
-        JEWLERY OPTION 4
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-    
-    
-    
-    </div>
-    
   <script>
-    // Function to activate a side menu button
-    function activateTab(button) {
-      // Remove 'active' class from all side buttons
-      document.querySelectorAll('.side-button').forEach(btn => btn.classList.remove('active'));
-      // Add 'active' class to the clicked button
-      button.classList.add('active');
+    // Function to activate a tab
+    function activateTab(tab) {
+      // Remove 'active' class from all tabs
+      document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      // Add 'active' class to the clicked tab
+      tab.classList.add('active');
     }
 
     // Function to toggle the active state of an option button
@@ -289,5 +287,7 @@
       button.classList.toggle('active');
     }
   </script>
+   
 </body>
 </html>
+  
