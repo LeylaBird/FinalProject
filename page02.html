@@ -14,9 +14,8 @@
   <title>Dress Up Menu</title>
   
   <style>
- <style>
-
-    
+  
+.content 
 
   .katibeh-regular {
     font-family: "Katibeh", serif;
@@ -28,15 +27,16 @@
       padding: 0;
       height: 100%;
     }
- 
+
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #ffcede;
      font-family: 'Katibeh';font-size: 22px;
+
     }
-   
+    
     .main-container {
       width: 95%;
       max-width: 1200px;
@@ -57,8 +57,6 @@
     
     
      /* Main container */
-
-
     .menu-container {
       display: flex;
       width: 400px;
@@ -67,11 +65,27 @@
       border-radius: 10px;
       overflow: hidden;
     }
-.image {
-      max-width: 80%; /* Ensure image fits within container width */
-      max-height: 70%; /* Ensure image fits within container height */
-      object-fit: contain; /* Keep image aspect ratio */
+
+
+/* Left area (main content space) */
+    .left-area {
+      flex: 2; /* 2/3 of the container width */
+      background-color: #FCE4EC;
+      position: relative;
+      display: flex;
+      justify-content: center; /* Center image horizontally */
+      align-items: center; /* Center image vertically */
     }
+
+    /* Image styling */
+    .character-image {
+      max-width: 90%; /* Ensure the image scales responsively */
+      max-height: 90%; /* Prevent the image from overflowing the container */
+      object-fit: contain; /* Maintain aspect ratio */
+      border-radius: 10px; /* Optional: Add rounded corners */
+    }
+    
+    
       /* Side tabs */
     .side-tabs {
       display: flex;
@@ -87,7 +101,7 @@
       transform: rotate(180deg);
       text-align: center;
       padding: 10px;
-      font-size: 2rem;
+      font-size: 1rem;
       font-weight: bold;
       color: white;
       background-color: #FC6CAB;
@@ -124,15 +138,14 @@
     }
 
     .option-button.active {
-      border: 5px solid #FC6CAB; /* Highlight active option */
+      border: 4px solid #FC6CAB; /* Highlight active option */
     }
 
     .option-button:hover {
       opacity: 0.8; /* Hover effect for buttons */
     }
     
-
-
+    
     .done-button {
       position: absolute;
       bottom: 20px;
@@ -177,7 +190,7 @@
       border: 2px solid black;
       border-radius: 10px;
       cursor: pointer;
-      height: 200px;
+      height: 100px;
     }
 
     .option-button.active {
@@ -194,8 +207,15 @@
 <body>
   
   <div class="main-container">
+   <!-- Left area -->
     <div class="left-area">
-      <a href="page03.html" class="done-button">DONE</a>
+      <img src="SKIN-OG.png" alt="origionalr" class="character-image01">
+      <a href="#" class="done-button">DONE</a>
+    </div>
+  
+    <div class="left-area" background-color="#FF9ABB">
+    
+     
     </div>
 
 
@@ -237,10 +257,6 @@
     }
   </script>
    
-   <div class="container">
-    <img src="SKIN-OG.png" alt="original" class="image">
-  </div>
-
 </body>
 </html>
   
