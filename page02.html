@@ -67,22 +67,23 @@
     }
 
 
-/* Left area (red-outlined container) */
-.left-area {
-      flex: 2; /* Adjusted width for red-outlined container */
+    /* Left area (main content space) */
+    .left-area {
+      flex: 2.5; /* Increased the width to move the image closer to the center */
       background-color: #FCE4EC;
       position: relative;
       display: flex;
-      justify-content: center; /* Center horizontally */
-      align-items: center; /* Center vertically */
-       /* Added red border to match the outline in the reference image */
+      justify-content: center; /* Center the image horizontally */
+    
     }
 
     /* Image styling */
-    .character-image {
-      max-width: 50%; /* Adjusted size of the character image */
-      max-height: 90%; /* Prevent the image from overflowing the container */
-      object-fit: contain; /* Maintain aspect ratio */
+    .character-image01 {
+      max-width: 210%; /* Ensure the image scales responsively */
+      max-height: 100%; /* Prevent the image from overflowing the container */
+     /* Maintain aspect ratio */
+      border-radius: 10px; /* Optional: Add rounded corners */
+      align-items: center;
     }
     
     
