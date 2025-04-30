@@ -28,7 +28,11 @@
       padding: 0;
       height: 100%;
     }
-
+ .image {
+      max-width: 100%; /* Ensure image fits within container width */
+      max-height: 100%; /* Ensure image fits within container height */
+      object-fit: contain; /* Keep image aspect ratio */
+    }
     body {
       display: flex;
       justify-content: center;
@@ -37,11 +41,7 @@
      font-family: 'Katibeh';font-size: 22px;
 
     }
-    .image {
-      max-width: 100%; /* Ensure image fits within container width */
-      max-height: 100%; /* Ensure image fits within container height */
-      object-fit: contain; /* Keep image aspect ratio */
-    }
+   
     .main-container {
       width: 95%;
       max-width: 1200px;
