@@ -62,7 +62,7 @@
 
 
     /* Left area (main content space) */
-     .left-area {
+    .left-area {
       flex: 2; /* Adjusted width for red-outlined container */
       background-color: #FCE4EC;
       position: relative;
@@ -72,12 +72,14 @@
      
     }
 
-
     /* Image styling */
-.character-image {
-      max-width: 50%; /* Adjusted size of the character image */
+    .character-image01 {
+      .character-image {
+      max-width: 60%; /* Adjust the size of the character image */
       max-height: 90%; /* Prevent the image from overflowing the container */
       object-fit: contain; /* Maintain aspect ratio */
+      transition: 0.3s ease; /* Smooth transition when the image changes */
+    }
     }
     
     
@@ -243,7 +245,12 @@
 
     <!-- Main content area -->
     <div class="content-area">
-    
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #FFDAB9;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #D2B48C;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #8B4513;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #90EE90;"></button>
+    </div>
+  </div>
   <div class="options-area">
     <button class="option-button" style="background-image: url('option1.png');" onclick="changeCharacter('character1.png')"></button>
     <button class="option-button" style="background-image: url('option2.png');" onclick="changeCharacter('character2.png')"></button>
@@ -254,7 +261,16 @@
 </div>
 
 <script>
-
+// Function to change the character image
+function changeCharacter(imageSrc) {
+  const characterImage = document.getElementById('character');
+  characterImage.src = imageSrc;
+}
+    // Function to change the character image
+    function changeCharacter(imageSrc) {
+      const characterImage = document.getElementById('character');
+      characterImage.src = imageSrc;
+    }
     // Function to activate a tab
     function activateTab(tab) {
       // Remove 'active' class from all tabs
