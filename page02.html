@@ -75,7 +75,7 @@
     /* Image styling */
     .character-image01 {
       max-width: 50%; /* Adjust the size of the character image */
-      max-height: 85%; /* Prevent the image from overflowing the container */
+      max-height: 100%; /* Prevent the image from overflowing the container */
       object-fit: contain; /* Maintain aspect ratio */
   
     }
@@ -242,22 +242,47 @@
     </div>
 
     <!-- Main content area -->
-    <div class="options-area">
-      <button class="option-button" style="background-image: url('option1.png');" onclick="changeCharacter('character1.png')"></button>
-      <button class="option-button" style="background-image: url('option2.png');" onclick="changeCharacter('character2.png')"></button>
-      <button class="option-button" style="background-image: url('option3.png');" onclick="changeCharacter('character3.png')"></button>
-      <button class="option-button" style="background-image: url('option4.png');" onclick="changeCharacter('character4.png')"></button>
+    <div class="content-area">
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #FFDAB9;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #D2B48C;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #8B4513;"></button>
+      <button class="option-button" onclick="toggleOption(this)" style="background-color: #90EE90;"></button>
     </div>
   </div>
+  <div class="options-area">
+    <button class="option-button" style="background-image: url('option1.png');" onclick="changeCharacter('character1.png')"></button>
+    <button class="option-button" style="background-image: url('option2.png');" onclick="changeCharacter('character2.png')"></button>
+    <button class="option-button" style="background-image: url('option3.png');" onclick="changeCharacter('character3.png')"></button>
+    <button class="option-button" style="background-image: url('option4.png');" onclick="changeCharacter('character4.png')"></button>
+  </div>
+</div>
 </div>
 
 <script>
-  // Function to change the character image
-  function changeCharacter(imageSrc) {
-    const characterImage = document.getElementById('character');
-    characterImage.src = imageSrc;
-  }
+// Function to change the character image
+function changeCharacter(imageSrc) {
+  const characterImage = document.getElementById('character');
+  characterImage.src = imageSrc;
+}
+    // Function to change the character image
+    function changeCharacter(imageSrc) {
+      const characterImage = document.getElementById('character');
+      characterImage.src = imageSrc;
+    }
+    // Function to activate a tab
+    function activateTab(tab) {
+      // Remove 'active' class from all tabs
+      document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      // Add 'active' class to the clicked tab
+      tab.classList.add('active');
+    }
 
+    // Function to toggle the active state of an option button
+    function toggleOption(button) {
+      button.classList.toggle('active');
+    }
   </script>
    
 </body>
