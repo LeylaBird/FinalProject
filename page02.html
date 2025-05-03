@@ -3,40 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!--google font links-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Katibeh&display=swap" rel="stylesheet">
-
-  <!---stuff from bootstrap home page "Include via CDN"--->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <title>Dress Up Menu</title>
-  
+  <title>Interactive Character with Image Buttons</title>
   <style>
-  
-.content 
-
-  .katibeh-regular {
-    font-family: "Katibeh", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  body, html {
-  margin: 0;
+    /* Reset and body styles */
+    body, html {
+      margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Katibeh';
-     background-color: #ffcede;
-  }
+      font-family: 'Arial', sans-serif;
+      background-color: #FADADD; /* Light pink background */
+    }
 
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 22px;
-  }
-    
+    }
+
+    /* Main container */
     .main-container {
       display: flex;
       width: 90%;
@@ -47,48 +31,61 @@
       overflow: hidden;
     }
 
-  
-    
-     /* Main container */
-    .menu-container {
-      display: flex;
-      width: 400px;
-      height: 600px;
-      background-color: #F48FB1; /* Bright pink background for menu */
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-
-
     /* Left area (main content space) */
-     .left-area {
-      flex: 2; /* Adjusted width for red-outlined container */
+    .left-area {
+      flex: 3; /* 3/4 of the container width */
       background-color: #FCE4EC;
       position: relative;
       display: flex;
-      justify-content: center; /* Center horizontally */
-      align-items: center; /* Center vertically */
-     
+      justify-content: center; /* Center character image horizontally */
+      align-items: center; /* Center character image vertically */
     }
 
-
-    /* Image styling */
-.character-image {
-      max-width: 50%; /* Adjusted size of the character image */
+    /* Character image styling */
+    .character-image {
+      max-width: 60%; /* Adjust the size of the character image */
       max-height: 90%; /* Prevent the image from overflowing the container */
       object-fit: contain; /* Maintain aspect ratio */
+      transition: 0.3s ease; /* Smooth transition when the image changes */
     }
-    
-    
-      /* Side tabs */
-    .side-tabs {
+
+    /* Done button */
+    .done-button {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #FC6CAB;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .done-button:hover {
+      background-color: #FF85C0; /* Slightly lighter pink on hover */
+    }
+
+    /* Right panel (options and tabs) */
+    .right-panel {
+      flex: 1; /* 1/4 of the container width */
       display: flex;
       flex-direction: column;
-      width: 100px;
-      background-color: #FC6CAB; /* Pink for tabs */
-      padding: 10px 0;
+      background-color: #F48FB1; /* Bright pink */
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-direction: column;
       justify-content: space-around;
+      margin-bottom: 20px;
     }
 
     .tab-button {
@@ -113,81 +110,7 @@
       background-color: #FF85C0; /* Hover effect for tabs */
     }
 
-/* Main content area */
-    .content-area {
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 columns for buttons */
-      gap: 20px;
-      padding: 20px;
-      background-color: #FCE4EC; /* Light pink background for content */
-    }
-
-    .option-button {
-      width: 100%;
-      background-color: #FCE4EC; /* Default button color */
-      border: 2px solid black;
-      border-radius: 10px;
-      cursor: pointer;
-      height: 100px;
-    }
-
-    .option-button.active {
-      border: 4px solid #FC6CAB; /* Highlight active option */
-    }
-
-    .option-button:hover {
-      opacity: 0.8; /* Hover effect for buttons */
-    }
-    
-    /* Left area (main content space) */
-    .left-area {
-      flex: 2; /* 2/3 of the container width */
-      background-color: #FCE4EC;
-      position: relative;
-      display: flex;
-      justify-content: center; /* Center the image horizontally */
-      align-items: center; /* Center the image vertically */
-    }
-
-    .done-button {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: bold;
-      color: white;
-      background-color: #FC6CAB;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .done-button:hover {
-      background-color: #FF85C0; 
-    }
-    .right-panel {
-      flex: 1; 
-      background-color: #F48FB1; 
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-    }
-
- 
-    /* Main content area */
-    .content-area {
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 columns for buttons */
-      gap: 20px;
-      padding: 20px;
-      background-color: #FCE4EC; /* Light pink background for content */
-    }
-     /* Options area */
+    /* Options area */
     .options-area {
       display: grid;
       grid-template-columns: repeat(2, 1fr); /* 2 columns for buttons */
@@ -195,9 +118,9 @@
     }
 
     .option-button {
-      width: 100px;
+      width: 100%;
       height: 100px;
-      background-color: #FF9ABB; /* Default button color */
+      background-color: #FCE4EC; /* Default button color */
       border: 2px solid black;
       border-radius: 10px;
       cursor: pointer;
@@ -209,68 +132,40 @@
     .option-button:hover {
       opacity: 0.8; /* Hover effect for buttons */
     }
-  
   </style>
 </head>
 <body>
-  <!-- Hidden background music -->
-  <audio id="background-music" src="music48.mp4" autoplay loop></audio>
-  
   <div class="main-container">
-   <!-- Left area -->
+    <!-- Left area -->
     <div class="left-area">
-      <img src="SKIN-OG.png" alt="orignal" class="character-image01">
-      <a href="page03.html" class="done-button">DONE</a>
-    </div>
-  
-    <div class="left-area" background-color="#FF9ABB">
-    
-     
+      <img id="character" src="character1.png" alt="Character" class="character-image">
+      <a href="#" class="done-button">DONE</a>
     </div>
 
-
- <!-- Side tabs -->
-    <div class="side-tabs">
-      <button class="tab-button active" onclick="activateTab(this)">Skin Color</button>
-      <button class="tab-button" onclick="activateTab(this)">Hair</button>
-      <button class="tab-button" onclick="activateTab(this)">Face</button>
-      <button class="tab-button" onclick="activateTab(this)">Shirts</button>
-      <button class="tab-button" onclick="activateTab(this)">Bottoms</button>
-      <button class="tab-button" onclick="activateTab(this)">Dresses</button>
-      <button class="tab-button" onclick="activateTab(this)">Shoes</button>
-      <button class="tab-button" onclick="activateTab(this)">Accessories</button>
+    <!-- Right panel -->
+    <div class="right-panel">
+      <div class="tabs">
+        <button class="tab-button active">Skin</button>
+        <button class="tab-button">Hair & Face</button>
+        <button class="tab-button">Clothes</button>
+        <button class="tab-button">Shoes</button>
+        <button class="tab-button">Accessories</button>
+      </div>
+      <div class="options-area">
+        <button class="option-button" style="background-image: url('option1.png');" onclick="changeCharacter('character1.png')"></button>
+        <button class="option-button" style="background-image: url('option2.png');" onclick="changeCharacter('character2.png')"></button>
+        <button class="option-button" style="background-image: url('option3.png');" onclick="changeCharacter('character3.png')"></button>
+        <button class="option-button" style="background-image: url('option4.png');" onclick="changeCharacter('character4.png')"></button>
+      </div>
     </div>
-
-    <!-- Main content area -->
-    <div class="content-area">
-    
-  <div class="options-area">
-    <button class="option-button" style="background-image: url('option1.png');" onclick="changeCharacter('character1.png')"></button>
-    <button class="option-button" style="background-image: url('option2.png');" onclick="changeCharacter('character2.png')"></button>
-    <button class="option-button" style="background-image: url('option3.png');" onclick="changeCharacter('character3.png')"></button>
-    <button class="option-button" style="background-image: url('option4.png');" onclick="changeCharacter('character4.png')"></button>
   </div>
-</div>
-</div>
 
-<script>
-
-    // Function to activate a tab
-    function activateTab(tab) {
-      // Remove 'active' class from all tabs
-      document.querySelectorAll('.tab-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      // Add 'active' class to the clicked tab
-      tab.classList.add('active');
-    }
-
-    // Function to toggle the active state of an option button
-    function toggleOption(button) {
-      button.classList.toggle('active');
+  <script>
+    // Function to change the character image
+    function changeCharacter(imageSrc) {
+      const characterImage = document.getElementById('character');
+      characterImage.src = imageSrc;
     }
   </script>
-   
 </body>
 </html>
-  
