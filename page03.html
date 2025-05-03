@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
   <meta charset="utf-8">
-  <title>Dress-up Fun</title>
+  
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress-up Fun</title>
     <!--google font links-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,42 +16,135 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <style> 
+body, html {
+  margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Katibeh';
+     background-color: #ffcede;
+}
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+  }
+/* Main container */
+.main-container {
+      display: flex;
+      width: 90%;
+      max-width: 1200px;
+      height: 90vh;
+      background-color: #FFE9F0; /* Default background color for the container */
+      border-radius: 10px;
+      overflow: hidden;
+      border: 5px solid #FADADD; /* Border to match the design */
+    }
+/* Left area (main content space) */
+.left-area {
+      flex: 3; /* 3/4 width for the subject */
+      display: flex;
+      justify-content: center; /* Center the image horizontally */
+      align-items: center; /* Center the image vertically */
+      background-color: #FFE9F0; /* Background color to be changed */
+    }
+
+    /* Image styling */
+    .char-image {
+      max-width: 50%; /* Adjust the size of the character image */
+      max-height: 90%; /* Prevent the image from overflowing the container */
+      object-fit: contain; /* Maintain aspect ratio */
+    }
+
+    /* Right panel (menu for background color options) */
+    .right-panel {
+      flex: 1; /* 1/4 width for the menu */
+      display: flex;
+      flex-direction: column;
+      background-color: #F48FB1; /* Bright pink */
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    /* Title in the right panel */
+    .right-panel h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    /* Buttons for color options */
+    .color-button {
+      width: 100%;
+      height: 60px;
+      margin-bottom: 10px;
+      border: 2px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: transparent; /* Default color for buttons */
+    }
+
+    .color-button:last-child {
+      margin-bottom: 0; /* Remove margin for the last button */
+    }
+
+    .color-button:hover {
+      opacity: 0.8; /* Hover effect */
+    }
+
   .katibeh-regular {
     font-family: "Katibeh", serif;
     font-weight: 400;
     font-style: normal;
   }
-  .center {
-    margin: auto;
-    width: 50%;
-    padding: 100px;
-  }
     h1 {
-        text-align: center; color: #ffffff; text-size-adjust: 200px;
+        text-align: center; 
+        color: #ffffff; 
+        text-size-adjust: 200px;
+        font-family: 'Katibeh';font-size: 100px;
     }
     h2 {
-        text-align: center; color: #ffffff;
-    }
-    body {
-  background-color: #ffcede;
-  }
-  </style>
-<style>
-  body {
-      font-family: 'Katibeh';font-size: 22px;
-  }
-  h1 {
-      font-family: 'Katibeh';font-size: 100px;
-  }
-  h2 {
-      font-family: 'Katibeh';font-size: 70px;
-  }
+        text-align: center;
+        color: #ffffff;
+        font-family: 'Katibeh';font-size: 70px;
+  } 
   p {
       font-family: 'Katibeh';font-size: 50px;
   }
   </style>
-    <h2>hello world</h2>
+  </head>
+<body>
+<!-- Hidden background music -->
+<audio id="background-music" src="music48.mp4" autoplay loop></audio>
 
-    </head>
 
+  <div class="main-container">
+    <!-- Left area -->
+    <div class="left-area" id="background-container">
+      <img src="SKIN-OG.png" alt="Character" class="char-image">
+    </div>
+
+    <!-- Right panel -->
+    <div class="right-panel">
+      <h2>BACKGROUND</h2>
+      <button class="color-button" style="background-color: #FF9999;" onclick="changeBackgroundColor('#FF9999')"></button>
+      <button class="color-button" style="background-color: #FFC299;" onclick="changeBackgroundColor('#FFC299')"></button>
+      <button class="color-button" style="background-color: #FFFF99;" onclick="changeBackgroundColor('#FFFF99')"></button>
+      <button class="color-button" style="background-color: #CCFF99;" onclick="changeBackgroundColor('#CCFF99')"></button>
+      <button class="color-button" style="background-color: #99CCFF;" onclick="changeBackgroundColor('#99CCFF')"></button>
+      <button class="color-button" style="background-color: #CC99FF;" onclick="changeBackgroundColor('#CC99FF')"></button>
+      <button class="color-button" style="background-color: #FF99CC;" onclick="changeBackgroundColor('#FF99CC')"></button>
+    </div>
+  </div>
+
+  <script>
+    // Function to change the background color of the left container
+    function changeBackgroundColor(color) {
+      document.getElementById('background-container').style.backgroundColor = color;
+    }
+  </script>
+</body>
 </html>
