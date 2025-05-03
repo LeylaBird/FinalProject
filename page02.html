@@ -74,11 +74,12 @@
 
     /* Image styling */
     .character-image01 {
-      max-width: 50%; /* Adjust the size of the character image */
-      max-height: 85%; /* Prevent the image from overflowing the container */
+      max-width: 60%; /* Adjust the size of the character image */
+      max-height: 90%; /* Prevent the image from overflowing the container */
       object-fit: contain; /* Maintain aspect ratio */
-  
+      transition: 0.3s ease; /* Smooth transition when the image changes */
     }
+    
     
     
       /* Side tabs */
@@ -140,7 +141,16 @@
       opacity: 0.8; /* Hover effect for buttons */
     }
     
-  
+    /* Left area (main content space) */
+    .left-area {
+      flex: 2; /* 2/3 of the container width */
+      background-color: #FCE4EC;
+      position: relative;
+      display: flex;
+      justify-content: center; /* Center the image horizontally */
+      align-items: center; /* Center the image vertically */
+    }
+
     .done-button {
       position: absolute;
       bottom: 20px;
