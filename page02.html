@@ -223,13 +223,7 @@
   </div>
 
   <script>
-
-
-
-
-    function changeCharacter(imageSrc) {
-      document.getElementById('character').src = imageSrc;
-    }
+    const selectedOptions = {};
 
     function switchTab(tabId) {
       document.querySelectorAll('.content-area').forEach(area => area.classList.remove('active'));
@@ -239,33 +233,38 @@
       event.target.classList.add('active');
     }
 
-    function selectOption(button, imageSrc) {
-      const options = button.parentElement.querySelectorAll('.option-button');
-      options.forEach(option => option.classList.remove('active'));
+    function selectOption(category, imageSrc) {
+      selectedOptions[category] = imageSrc;
+      renderCharacter();
+       options.forEach(option => option.classList.remove('active'));
       button.classList.add('active');
       changeCharacter(imageSrc);
+      }
+
+    function renderCharacter() {
+      const characterContainer = document.getElementById('character-container');
+      characterContainer.innerHTML = ''; // Clear existing layers
+
+      // Ensure skin is always the bottom-most layer
+      if (selectedOptions.skin) {
+        const skinLayer = document.createElement('img');
+        skinLayer.src = selectedOptions.skin;
+        skinLayer.alt = 'Skin layer';
+        skinLayer.classList.add('character-layer');
+        characterContainer.appendChild(skinLayer);
+      }
+
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'skin') continue; // Skip skin as it's already added
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      
     }
-    const selectedOptions = {};
-
-  // Ensure skin is always the bottom-most layer
-  if (selectedOptions.skin) {
-    const skinLayer = document.createElement('img');
-    skinLayer.src = selectedOptions.skin;
-    skinLayer.alt = 'Skin layer';
-    skinLayer.classList.add('character-layer');
-    characterContainer.appendChild(skinLayer);
-  }
-
-  // Add other layers in order
-  for (const [category, imageSrc] of Object.entries(selectedOptions)) {
-    if (category === 'skin') continue; // Skip skin as it's already added
-    const layer = document.createElement('img');
-    layer.src = imageSrc;
-    layer.alt = `${category} layer`;
-    layer.classList.add('character-layer');
-    characterContainer.appendChild(layer);
-  }
-
-</script>
+  </script>
 </body>
 </html>
