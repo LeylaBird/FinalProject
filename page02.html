@@ -125,6 +125,10 @@
       background-repeat: no-repeat;
     }
 
+    .option-button.active {
+      border: 4px solid #FC6CAB;
+    }
+
     .option-button:hover {
       opacity: 0.8;
     }
@@ -150,38 +154,38 @@
 
     <!-- Options areas -->
     <div id="skin-options" class="content-area active">
-      <button class="option-button" style="background-image: url('skin1.png');" onclick="changeCharacter('character-skin1.png')"></button>
-      <button class="option-button" style="background-image: url('skin2.png');" onclick="changeCharacter('character-skin2.png')"></button>
-      <button class="option-button" style="background-image: url('skin3.png');" onclick="changeCharacter('character-skin3.png')"></button>
-      <button class="option-button" style="background-image: url('skin4.png');" onclick="changeCharacter('character-skin4.png')"></button>
+      <button class="option-button" style="background-image: url('skin1.png');" onclick="selectOption(this, 'character-skin1.png')"></button>
+      <button class="option-button" style="background-image: url('skin2.png');" onclick="selectOption(this, 'character-skin2.png')"></button>
+      <button class="option-button" style="background-image: url('skin3.png');" onclick="selectOption(this, 'character-skin3.png')"></button>
+      <button class="option-button" style="background-image: url('skin4.png');" onclick="selectOption(this, 'character-skin4.png')"></button>
     </div>
 
     <div id="hair-options" class="content-area">
-      <button class="option-button" style="background-image: url('hair1.png');" onclick="changeCharacter('character-hair1.png')"></button>
-      <button class="option-button" style="background-image: url('hair2.png');" onclick="changeCharacter('character-hair2.png')"></button>
-      <button class="option-button" style="background-image: url('hair3.png');" onclick="changeCharacter('character-hair3.png')"></button>
-      <button class="option-button" style="background-image: url('hair4.png');" onclick="changeCharacter('character-hair4.png')"></button>
+      <button class="option-button" style="background-image: url('hair1.png');" onclick="selectOption(this, 'character-hair1.png')"></button>
+      <button class="option-button" style="background-image: url('hair2.png');" onclick="selectOption(this, 'character-hair2.png')"></button>
+      <button class="option-button" style="background-image: url('hair3.png');" onclick="selectOption(this, 'character-hair3.png')"></button>
+      <button class="option-button" style="background-image: url('hair4.png');" onclick="selectOption(this, 'character-hair4.png')"></button>
     </div>
 
     <div id="face-options" class="content-area">
-      <button class="option-button" style="background-image: url('face1.png');" onclick="changeCharacter('character-face1.png')"></button>
-      <button class="option-button" style="background-image: url('face2.png');" onclick="changeCharacter('character-face2.png')"></button>
-      <button class="option-button" style="background-image: url('face3.png');" onclick="changeCharacter('character-face3.png')"></button>
-      <button class="option-button" style="background-image: url('face4.png');" onclick="changeCharacter('character-face4.png')"></button>
+      <button class="option-button" style="background-image: url('face1.png');" onclick="selectOption(this, 'character-face1.png')"></button>
+      <button class="option-button" style="background-image: url('face2.png');" onclick="selectOption(this, 'character-face2.png')"></button>
+      <button class="option-button" style="background-image: url('face3.png');" onclick="selectOption(this, 'character-face3.png')"></button>
+      <button class="option-button" style="background-image: url('face4.png');" onclick="selectOption(this, 'character-face4.png')"></button>
     </div>
 
     <div id="clothes-options" class="content-area">
-      <button class="option-button" style="background-image: url('clothes1.png');" onclick="changeCharacter('character-clothes1.png')"></button>
-      <button class="option-button" style="background-image: url('clothes2.png');" onclick="changeCharacter('character-clothes2.png')"></button>
-      <button class="option-button" style="background-image: url('clothes3.png');" onclick="changeCharacter('character-clothes3.png')"></button>
-      <button class="option-button" style="background-image: url('clothes4.png');" onclick="changeCharacter('character-clothes4.png')"></button>
+      <button class="option-button" style="background-image: url('clothes1.png');" onclick="selectOption(this, 'character-clothes1.png')"></button>
+      <button class="option-button" style="background-image: url('clothes2.png');" onclick="selectOption(this, 'character-clothes2.png')"></button>
+      <button class="option-button" style="background-image: url('clothes3.png');" onclick="selectOption(this, 'character-clothes3.png')"></button>
+      <button class="option-button" style="background-image: url('clothes4.png');" onclick="selectOption(this, 'character-clothes4.png')"></button>
     </div>
 
     <div id="accessories-options" class="content-area">
-      <button class="option-button" style="background-image: url('accessory1.png');" onclick="changeCharacter('character-accessory1.png')"></button>
-      <button class="option-button" style="background-image: url('accessory2.png');" onclick="changeCharacter('character-accessory2.png')"></button>
-      <button class="option-button" style="background-image: url('accessory3.png');" onclick="changeCharacter('character-accessory3.png')"></button>
-      <button class="option-button" style="background-image: url('accessory4.png');" onclick="changeCharacter('character-accessory4.png')"></button>
+      <button class="option-button" style="background-image: url('accessory1.png');" onclick="selectOption(this, 'character-accessory1.png')"></button>
+      <button class="option-button" style="background-image: url('accessory2.png');" onclick="selectOption(this, 'character-accessory2.png')"></button>
+      <button class="option-button" style="background-image: url('accessory3.png');" onclick="selectOption(this, 'character-accessory3.png')"></button>
+      <button class="option-button" style="background-image: url('accessory4.png');" onclick="selectOption(this, 'character-accessory4.png')"></button>
     </div>
   </div>
 
@@ -197,8 +201,13 @@
       document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
       event.target.classList.add('active');
     }
+
+    function selectOption(button, imageSrc) {
+      const options = button.parentElement.querySelectorAll('.option-button');
+      options.forEach(option => option.classList.remove('active'));
+      button.classList.add('active');
+      changeCharacter(imageSrc);
+    }
   </script>
 </body>
 </html>
-
-
