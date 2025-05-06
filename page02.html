@@ -215,26 +215,38 @@
   </div>
 
   <script>
+    // Object to store selected options
     const selectedOptions = {};
-
+  
+    // Function to switch between tabs
     function switchTab(tabId) {
       document.querySelectorAll('.content-area').forEach(area => area.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
-
+  
       document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
       event.target.classList.add('active');
     }
-
+  
+    // Function to select an option and render the character
     function selectOption(category, imageSrc) {
+      // Store the selected option for the current category
       selectedOptions[category] = imageSrc;
+  
+      // Highlight the selected button
+      const options = document.querySelectorAll(`#${category}-options .option-button`);
+      options.forEach(option => option.classList.remove('active'));
+      event.target.classList.add('active');
+  
+      // Render the character with the selected layers
       renderCharacter();
     }
-
+  
+    // Function to render the character with selected layers
     function renderCharacter() {
       const characterContainer = document.getElementById('character-container');
       characterContainer.innerHTML = ''; // Clear existing layers
-
-      // Ensure skin is always the bottom-most layer
+  
+      // Ensure the skin is always the bottom-most layer
       if (selectedOptions.skin) {
         const skinLayer = document.createElement('img');
         skinLayer.src = selectedOptions.skin;
