@@ -135,11 +135,15 @@
   </style>
 </head>
 <body>
-  <audio id="background-music" src="music48.mp4" autoplay loop></audio>
+  <audio id="background-music" autoplay loop>
+    <source src="music48.mp4" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
+
   <div class="main-container">
     <!-- Left area -->
     <div class="left-area">
-      <img id="character" src="SKIN-OG.png" alt="Character" class="character-image">
+      <img id="character" src="character-image01.png" alt="Character" class="character-image">
       <a href="page03.html" class="done-button">DONE</a>
     </div>
 
@@ -148,7 +152,10 @@
       <button class="tab-button active" onclick="switchTab('skin-options')">Skin Color</button>
       <button class="tab-button" onclick="switchTab('hair-options')">Hair</button>
       <button class="tab-button" onclick="switchTab('face-options')">Face</button>
-      <button class="tab-button" onclick="switchTab('clothes-options')">Clothes</button>
+      <button class="tab-button" onclick="switchTab('shirt-options')">Shirt</button>
+      <button class="tab-button" onclick="switchTab('bottoms-options')">Bottoms</button>
+      <button class="tab-button" onclick="switchTab('jackets-options')">Jackets</button>
+      <button class="tab-button" onclick="switchTab('shoes-options')">Shoes</button>
       <button class="tab-button" onclick="switchTab('accessories-options')">Accessories</button>
     </div>
 
@@ -159,34 +166,55 @@
       <button class="option-button" style="background-image: url('skin3.png');" onclick="selectOption(this, 'character-skin3.png')"></button>
       <button class="option-button" style="background-image: url('skin4.png');" onclick="selectOption(this, 'character-skin4.png')"></button>
     </div>
-
+    <!-- Repeat for other tabs -->
     <div id="hair-options" class="content-area">
       <button class="option-button" style="background-image: url('hair1.png');" onclick="selectOption(this, 'character-hair1.png')"></button>
       <button class="option-button" style="background-image: url('hair2.png');" onclick="selectOption(this, 'character-hair2.png')"></button>
       <button class="option-button" style="background-image: url('hair3.png');" onclick="selectOption(this, 'character-hair3.png')"></button>
       <button class="option-button" style="background-image: url('hair4.png');" onclick="selectOption(this, 'character-hair4.png')"></button>
     </div>
-
     <div id="face-options" class="content-area">
       <button class="option-button" style="background-image: url('face1.png');" onclick="selectOption(this, 'character-face1.png')"></button>
       <button class="option-button" style="background-image: url('face2.png');" onclick="selectOption(this, 'character-face2.png')"></button>
       <button class="option-button" style="background-image: url('face3.png');" onclick="selectOption(this, 'character-face3.png')"></button>
       <button class="option-button" style="background-image: url('face4.png');" onclick="selectOption(this, 'character-face4.png')"></button>
     </div>
-
-    <div id="clothes-options" class="content-area">
-      <button class="option-button" style="background-image: url('clothes1.png');" onclick="selectOption(this, 'character-clothes1.png')"></button>
-      <button class="option-button" style="background-image: url('clothes2.png');" onclick="selectOption(this, 'character-clothes2.png')"></button>
-      <button class="option-button" style="background-image: url('clothes3.png');" onclick="selectOption(this, 'character-clothes3.png')"></button>
-      <button class="option-button" style="background-image: url('clothes4.png');" onclick="selectOption(this, 'character-clothes4.png')"></button>
+    <!-- Repeat for other tabs -->
+    <div id="shirt-options" class="content-area">
+      <button class="option-button" style="background-image: url('shirt1.png');" onclick="selectOption(this, 'character-shirt1.png')"></button>
+      <button class="option-button" style="background-image: url('shirt2.png');" onclick="selectOption(this, 'character-shirt2.png')"></button>
+      <button class="option-button" style="background-image: url('shirt3.png');" onclick="selectOption(this, 'character-shirt3.png')"></button>
+      <button class="option-button" style="background-image: url('shrit4.png');" onclick="selectOption(this, 'character-shirt4.png')"></button>
     </div>
-
+    <!-- Repeat for other tabs -->
+    <div id="bottoms-options" class="content-area">
+      <button class="option-button" style="background-image: url('bottoms1.png');" onclick="selectOption(this, 'character-bottoms1.png')"></button>
+      <button class="option-button" style="background-image: url('bottoms2.png');" onclick="selectOption(this, 'character-bottoms2.png')"></button>
+      <button class="option-button" style="background-image: url('bottoms3.png');" onclick="selectOption(this, 'character-bottoms3.png')"></button>
+      <button class="option-button" style="background-image: url('bottoms4.png');" onclick="selectOption(this, 'character-bottoms4.png')"></button>
+    </div>
+    <!-- Repeat for other tabs -->
+    <div id="jackets-options" class="content-area">
+      <button class="option-button" style="background-image: url('jackets1.png');" onclick="selectOption(this, 'character-jackets1.png')"></button>
+      <button class="option-button" style="background-image: url('jackets2.png');" onclick="selectOption(this, 'character-jackets2.png')"></button>
+      <button class="option-button" style="background-image: url('jackets3.png');" onclick="selectOption(this, 'character-jackets3.png')"></button>
+      <button class="option-button" style="background-image: url('jackets4.png');" onclick="selectOption(this, 'character-jackets4.png')"></button>
+    </div>
+    <!-- Repeat for other tabs -->
+    <div id="shoes-options" class="content-area">
+      <button class="option-button" style="background-image: url('shoes1.png');" onclick="selectOption(this, 'character-shoes1.png')"></button>
+      <button class="option-button" style="background-image: url('shoes2.png');" onclick="selectOption(this, 'character-shoes2.png')"></button>
+      <button class="option-button" style="background-image: url('shoes3.png');" onclick="selectOption(this, 'character-shoes3.png')"></button>
+      <button class="option-button" style="background-image: url('shoes4.png');" onclick="selectOption(this, 'character-shoes4.png')"></button>
+    </div>
+    <!-- Repeat for other tabs -->
     <div id="accessories-options" class="content-area">
-      <button class="option-button" style="background-image: url('accessory1.png');" onclick="selectOption(this, 'character-accessory1.png')"></button>
-      <button class="option-button" style="background-image: url('accessory2.png');" onclick="selectOption(this, 'character-accessory2.png')"></button>
-      <button class="option-button" style="background-image: url('accessory3.png');" onclick="selectOption(this, 'character-accessory3.png')"></button>
-      <button class="option-button" style="background-image: url('accessory4.png');" onclick="selectOption(this, 'character-accessory4.png')"></button>
+      <button class="option-button" style="background-image: url('accessories1.png');" onclick="selectOption(this, 'character-accessories1.png')"></button>
+      <button class="option-button" style="background-image: url('accessories2.png');" onclick="selectOption(this, 'character-accessories2.png')"></button>
+      <button class="option-button" style="background-image: url('accessories3.png');" onclick="selectOption(this, 'character-accessories3.png')"></button>
+      <button class="option-button" style="background-image: url('accessories4.png');" onclick="selectOption(this, 'character-accessories4.png')"></button>
     </div>
+   
   </div>
 
   <script>
