@@ -228,18 +228,22 @@
     }
   
     // Function to select an option and render the character
-    function selectOption(category, imageSrc) {
-      // Store the selected option for the current category
-      selectedOptions[category] = imageSrc;
-  
-      // Highlight the selected button
-      const options = document.querySelectorAll(`#${category}-options .option-button`);
-      options.forEach(option => option.classList.remove('active'));
-      event.target.classList.add('active');
-  
-      // Render the character with the selected layers
-      renderCharacter();
-    }
+   function selectOption(button, imageSrc) {
+  // Get category from current active tab ID
+  const activeTab = document.querySelector('.content-area.active');
+  const category = activeTab.id.replace('-options', '');
+
+  // Update selected option
+  selectedOptions[category] = imageSrc;
+
+  // Highlight the selected button
+  activeTab.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+
+  // Re-render character
+  renderCharacter();
+}
+
   
     // Function to render the character with selected layers
     function renderCharacter() {
@@ -247,7 +251,7 @@
       characterContainer.innerHTML = ''; // Clear existing layers
   
       // Ensure the skin is always the bottom-most layer
-      if (selectedOptions.skin) {
+      if (tab-button.skin) {
         const skinLayer = document.createElement('img');
         skinLayer.src = selectedOptions.skin;
         skinLayer.alt = 'Skin layer';
@@ -257,7 +261,7 @@
 
       // Add other layers in order
       for (const [category, imageSrc] of Object.entries(selectedOptions)) {
-        if (category === 'skin') continue; // Skip skin as it's already added
+        if (tab-button.hair) continue; // Skip skin as it's already added
         const layer = document.createElement('img');
         layer.src = imageSrc;
         layer.alt = `${category} layer`;
@@ -266,7 +270,7 @@
       }
       // Add other layers in order
       for (const [category, imageSrc] of Object.entries(selectedOptions)) {
-        if (category === 'face') continue; 
+        if (tab-button.face) continue; 
         const layer = document.createElement('img');
         layer.src = imageSrc;
         layer.alt = `${category} layer`;
@@ -329,5 +333,6 @@
       }
     }
   </script>
+    
 </body>
 </html>
