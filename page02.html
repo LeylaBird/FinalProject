@@ -215,22 +215,119 @@
   </div>
 
   <script>
-
-    // Function to activate a tab
-    function activateTab(tab) {
-      // Remove 'active' class from all tabs
-      document.querySelectorAll('.tab-button').forEach(button => {
-        button.classList.remove('active');
-      });
-      // Add 'active' class to the clicked tab
-      tab.classList.add('active');
+    // Object to store selected options
+    const selectedOptions = {};
+  
+    // Function to switch between tabs
+    function switchTab(tabId) {
+      document.querySelectorAll('.content-area').forEach(area => area.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+  
+      document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+      event.target.classList.add('active');
     }
+  
+    // Function to select an option and render the character
+    function selectOption(category, imageSrc) {
+      // Store the selected option for the current category
+      selectedOptions[category] = imageSrc;
+  
+      // Highlight the selected button
+      const options = document.querySelectorAll(`#${category}-options .option-button`);
+      options.forEach(option => option.classList.remove('active'));
+      event.target.classList.add('active');
+  
+      // Render the character with the selected layers
+      renderCharacter();
+    }
+  
+    // Function to render the character with selected layers
+    function renderCharacter() {
+      const characterContainer = document.getElementById('character-container');
+      characterContainer.innerHTML = ''; // Clear existing layers
+  
+      // Ensure the skin is always the bottom-most layer
+      if (selectedOptions.skin) {
+        const skinLayer = document.createElement('img');
+        skinLayer.src = selectedOptions.skin;
+        skinLayer.alt = 'Skin layer';
+        skinLayer.classList.add('character-layer');
+        characterContainer.appendChild(skinLayer);
+      }
 
-    // Function to toggle the active state of an option button
-    function toggleOption(button) {
-      button.classList.toggle('active');
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'skin') continue; // Skip skin as it's already added
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'face') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'hair') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'jacket') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'dress') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'shirt') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'bottoms') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'shoes') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
     }
   </script>
-
 </body>
 </html>
