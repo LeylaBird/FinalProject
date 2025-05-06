@@ -225,19 +225,19 @@
   <script>
   const selectedOptions = {};
 
-function switchTab(tabId) {
+
+
+    function changeCharacter(imageSrc) {
+      document.getElementById('character').src = imageSrc;
+    }
+
+    function switchTab(tabId) {
       document.querySelectorAll('.content-area').forEach(area => area.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
 
       document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
       event.target.classList.add('active');
     }
-
-    function changeCharacter(imageSrc) {
-      document.getElementById('character').src = imageSrc;
-    }
-
-    
 
     function selectOption(button, imageSrc) {
       const options = button.parentElement.querySelectorAll('.option-button');
