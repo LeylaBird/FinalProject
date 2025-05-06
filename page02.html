@@ -228,10 +228,7 @@
     function selectOption(category, imageSrc) {
       selectedOptions[category] = imageSrc;
       renderCharacter();
-       options.forEach(option => option.classList.remove('active'));
-      button.classList.add('active');
-      changeCharacter(imageSrc);
-      }
+    }
 
     function renderCharacter() {
       const characterContainer = document.getElementById('character-container');
@@ -255,7 +252,69 @@
         layer.classList.add('character-layer');
         characterContainer.appendChild(layer);
       }
-      
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'face') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'hair') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'jacket') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'dress') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'shirt') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'bottoms') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
+      // Add other layers in order
+      for (const [category, imageSrc] of Object.entries(selectedOptions)) {
+        if (category === 'shoes') continue; 
+        const layer = document.createElement('img');
+        layer.src = imageSrc;
+        layer.alt = `${category} layer`;
+        layer.classList.add('character-layer');
+        characterContainer.appendChild(layer);
+      }
     }
   </script>
 </body>
