@@ -245,23 +245,6 @@
     }
     const selectedOptions = {};
 
-function switchTab(tabId) {
-  document.querySelectorAll('.content-area').forEach(area => area.classList.remove('active'));
-  document.getElementById(tabId).classList.add('active');
-
-  document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
-  event.target.classList.add('active');
-}
-
-function selectOption(category, imageSrc) {
-  selectedOptions[category] = imageSrc;
-  renderCharacter();
-}
-
-function renderCharacter() {
-  const characterContainer = document.getElementById('character-container');
-  characterContainer.innerHTML = ''; // Clear existing layers
-
   // Ensure skin is always the bottom-most layer
   if (selectedOptions.skin) {
     const skinLayer = document.createElement('img');
@@ -280,7 +263,7 @@ function renderCharacter() {
     layer.classList.add('character-layer');
     characterContainer.appendChild(layer);
   }
-}
+
 </script>
 </body>
 </html>
